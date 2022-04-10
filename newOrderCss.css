@@ -1313,7 +1313,7 @@
   }
 
   .select-string-wrapper {
-    border: 2px solid #0041a9;
+    border: 2px solid #333;
     height: 150px;
     width: 90%;
     margin: auto;
@@ -1755,6 +1755,19 @@
     margin-top: 25px;
 }
 
+#customerProvideStringDialog .error,
+#asProvideStringDialog .error {
+  background-color: rgb(212, 18, 18);
+  height: auto;
+  color: #fff;
+  width: 100%;
+  margin-top: 10px;
+  border-radius: 5px;
+  padding: 5px;
+  display: none;
+}
+
+
 #customerProvideStringDialog h1,
 #asProvideStringDialog h1 {
     color: #0041a9;
@@ -1862,6 +1875,7 @@
   margin-bottom: 0px;
   margin-top: 10px;
   position: relative;
+  height: 350px;
 }
 
 .string-carousel .card h1 {
@@ -1900,9 +1914,9 @@
   height: 15px;
 }
 
-.dark-card {
+.selected-card {
   transition: 1s;
-  filter: brightness(90%);
+  border: 2px solid #0041a9;
 }
 
 .no-click {
@@ -1988,6 +2002,10 @@
   height: 100%;
 }
 
+.chosen-strings-wrapper {
+  display: none;
+}
+
 .string-selection {
   border: 2px solid #0041a9;
   display: flex;
@@ -2003,6 +2021,8 @@
 
 .string-selection .flex {
   gap: 15px;
+  font-size: 20px;
+  font-weight: 500;
 }
 
 
