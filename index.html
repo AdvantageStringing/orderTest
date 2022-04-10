@@ -184,11 +184,14 @@
         <div class="flex">
             <a class="solid-blue-button" href="#" rel="modal:close">Close</a>
         </div>
-        
     </div>
+
     <div id="customerProvideStringDialog" class="modal">
         <h1>Select Strings</h1>
         <p>Input the strings you plan on bringing.</p>
+        <div class="error" id="customerProvideError">
+            <p>Please fill out both "String Name" inputs.</p>
+        </div>
         <form action="" id="customerProvideStringForm">
             <div class="customer-string-select grid">
                 <p class="type-label">Mains</p>
@@ -216,26 +219,48 @@
         </form>
         
         <div class="flex">
-            <a class="solid-blue-button" href="#" rel="modal:close">Close</a>
+            <a class="solid-blue-button" onclick="getCustomerProvideInputs()">Done</a>
         </div>
     </div>
 
     <div id="asProvideStringDialog" class="modal">
         <h1>Select Strings</h1>
         <p>Input the strings you want for your racket.</p>
+        <div class="error" id="asProvideError">
+            <p>Please select a string for both the mains and crosses</p>
+        </div>
         <div class="spacer"></div>
         <div class="as-provide-dialog-content grid">
             <p class="type-label">Mains</p>
 
             <div class="mains-string-carousel string-carousel">
                 <div class="flex">
-                    <div class="string-item card" id="kjsdg">
-                        <img src="Images/yonnex-polytour-pro.jpg" alt="Polytour Pro" class="string-img">
-                        <h1 class="string-name bolded">Polytour Pro</h1>
+                    <div class="string-item card">
+                        <img src="Images/prince-xp.jpg" alt="Prince XP" class="string-img">
+                        <h1 class="string-name bolded">Prince XP</h1>
                         <h2 class="string-type">Polyester</h2>
                         <div class="flex">
                             <div class="blue-outline-button main-selector">Select</div>
                         </div>
+                        
+                    </div>
+                    <div class="string-item card">
+                        <img src="Images/prince-synthetic-gut.jpg" alt="Prince Synth gut" class="string-img">
+                        <h1 class="string-name bolded">Prince Synth</h1>
+                        <h2 class="string-type">Synthetic Gut</h2>
+                        <div class="flex">
+                            <div class="blue-outline-button main-selector">Select</div>
+                        </div>
+                        
+                    </div>
+                    <div class="string-item card">
+                        <img src="Images/proform-tuff.jpg" alt="Proform Tuff" class="string-img">
+                        <h1 class="string-name bolded">Proform Tuff</h1>
+                        <h2 class="string-type">Synthetic Gut</h2>
+                        <div class="flex">
+                            <div class="blue-outline-button main-selector">Select</div>
+                        </div>
+                        
                     </div>
                     <div class="string-item card" id="kjsdg">
                         <img src="Images/yonnex-polytour-pro.jpg" alt="Polytour Pro" class="string-img">
@@ -244,54 +269,61 @@
                         <div class="flex">
                             <div class="blue-outline-button main-selector">Select</div>
                         </div>
+                        
                     </div>
-                    <div class="string-item card" id="kjsdg">
-                        <img src="Images/yonnex-polytour-pro.jpg" alt="Polytour Pro" class="string-img">
-                        <h1 class="string-name bolded">Polytour Pro</h1>
+                    <div class="string-item card">
+                        <img src="Images/head-lynx.jpg" alt="Lynx" class="string-img">
+                        <h1 class="string-name bolded">Lynx</h1>
                         <h2 class="string-type">Polyester</h2>
                         <div class="flex">
                             <div class="blue-outline-button main-selector">Select</div>
                         </div>
+                        
                     </div>
-                    <div class="string-item card" id="kjsdg">
-                        <img src="Images/yonnex-polytour-pro.jpg" alt="Polytour Pro" class="string-img">
-                        <h1 class="string-name bolded">Polytour Pro</h1>
+                    <div class="string-item card">
+                        <img src="Images/wilson-nxt.jpg" alt="NXT" class="string-img">
+                        <h1 class="string-name bolded">NXT</h1>
+                        <h2 class="string-type">Multifiliment</h2>
+                        <div class="flex">
+                            <div class="blue-outline-button main-selector">Select</div>
+                        </div>
+                        
+                    </div>
+                    <div class="string-item card">
+                        <img src="Images/prince-xc.jpg" alt="Prince XC" class="string-img">
+                        <h1 class="string-name bolded">Prince XC</h1>
                         <h2 class="string-type">Polyester</h2>
                         <div class="flex">
                             <div class="blue-outline-button main-selector">Select</div>
                         </div>
+                        
                     </div>
-                    <div class="string-item card" id="kjsdg">
-                        <img src="Images/yonnex-polytour-pro.jpg" alt="Polytour Pro" class="string-img">
-                        <h1 class="string-name bolded">Polytour Pro</h1>
+                    <div class="string-item card">
+                        <img src="Images/pro-feel.jpg" alt="Pro Feel" class="string-img">
+                        <h1 class="string-name bolded">Pro Feel</h1>
+                        <h2 class="string-type">Co-Polyester</h2>
+                        <div class="flex">
+                            <div class="blue-outline-button main-selector">Select</div>
+                        </div>
+                        
+                    </div>
+                    <div class="string-item card">
+                        <img src="Images/pentapower_twisted.jpg" alt="Pentapower" class="string-img">
+                        <h1 class="string-name bolded">Pentapower</h1>
+                        <h2 class="string-type">Co-Polyester</h2>
+                        <div class="flex">
+                            <div class="blue-outline-button main-selector">Select</div>
+                        </div>
+                        
+                    </div>
+                    <div class="string-item card">
+                        <img src="Images/polylon.jpg" alt="Polylon" class="string-img">
+                        <h1 class="string-name bolded">Polylon</h1>
                         <h2 class="string-type">Polyester</h2>
                         <div class="flex">
                             <div class="blue-outline-button main-selector">Select</div>
                         </div>
-                    </div>
-                    <div class="string-item card" id="kjsdg">
-                        <img src="Images/yonnex-polytour-pro.jpg" alt="Polytour Pro" class="string-img">
-                        <h1 class="string-name bolded">Polytour Pro</h1>
-                        <h2 class="string-type">Polyester</h2>
-                        <div class="flex">
-                            <div class="blue-outline-button main-selector">Select</div>
-                        </div>
-                    </div>
-                    <div class="string-item card" id="kjsdg">
-                        <img src="Images/yonnex-polytour-pro.jpg" alt="Polytour Pro" class="string-img">
-                        <h1 class="string-name bolded">Polytour Pro</h1>
-                        <h2 class="string-type">Polyester</h2>
-                        <div class="flex">
-                            <div class="blue-outline-button main-selector">Select</div>
-                        </div>
-                    </div>
-                    <div class="string-item card" id="kjsdg">
-                        <img src="Images/yonnex-polytour-pro.jpg" alt="Polytour Pro" class="string-img">
-                        <h1 class="string-name bolded">Polytour Pro</h1>
-                        <h2 class="string-type">Polyester</h2>
-                        <div class="flex">
-                            <div class="blue-outline-button main-selector">Select</div>
-                        </div>
+                        
                     </div>
                 
                 </div>
@@ -308,14 +340,31 @@
 
             <div class="crosses-string-carousel string-carousel">
                 <div class="flex">
-                    <div class="string-item card" id="kjsdg">
-                        <img src="Images/yonnex-polytour-pro.jpg" alt="Polytour Pro" class="string-img">
-                        <h1 class="string-name bolded">Polytour Pro</h1>
+                    <div class="string-item card">
+                        <img src="Images/prince-xp.jpg" alt="Prince XP" class="string-img">
+                        <h1 class="string-name bolded">Prince XP</h1>
                         <h2 class="string-type">Polyester</h2>
                         <div class="flex">
-                            <div class="blue-outline-button main-selector">Select</div>
+                            <div class="blue-outline-button cross-selector">Select</div>
                         </div>
-                        <div class="check"><i class="fas fa-angle-double-right"></i></div>
+                        
+                    </div>
+                    <div class="string-item card">
+                        <img src="Images/prince-synthetic-gut.jpg" alt="Prince Synth gut" class="string-img">
+                        <h1 class="string-name bolded">Prince Synth</h1>
+                        <h2 class="string-type">Synthetic Gut</h2>
+                        <div class="flex">
+                            <div class="blue-outline-button cross-selector">Select</div>
+                        </div>
+                        
+                    </div>
+                    <div class="string-item card">
+                        <img src="Images/proform-tuff.jpg" alt="Proform Tuff" class="string-img">
+                        <h1 class="string-name bolded">Proform Tuff</h1>
+                        <h2 class="string-type">Synthetic Gut</h2>
+                        <div class="flex">
+                            <div class="blue-outline-button cross-selector">Select</div>
+                        </div>
                         
                     </div>
                     <div class="string-item card" id="kjsdg">
@@ -323,56 +372,63 @@
                         <h1 class="string-name bolded">Polytour Pro</h1>
                         <h2 class="string-type">Polyester</h2>
                         <div class="flex">
-                            <div class="blue-outline-button main-selector">Select</div>
+                            <div class="blue-outline-button cross-selector">Select</div>
                         </div>
+                        
                     </div>
-                    <div class="string-item card" id="kjsdg">
-                        <img src="Images/yonnex-polytour-pro.jpg" alt="Polytour Pro" class="string-img">
-                        <h1 class="string-name bolded">Polytour Pro</h1>
+                    <div class="string-item card">
+                        <img src="Images/head-lynx.jpg" alt="Lynx" class="string-img">
+                        <h1 class="string-name bolded">Lynx</h1>
                         <h2 class="string-type">Polyester</h2>
                         <div class="flex">
-                            <div class="blue-outline-button main-selector">Select</div>
+                            <div class="blue-outline-button cross-selector">Select</div>
                         </div>
+                        
                     </div>
-                    <div class="string-item card" id="kjsdg">
-                        <img src="Images/yonnex-polytour-pro.jpg" alt="Polytour Pro" class="string-img">
-                        <h1 class="string-name bolded">Polytour Pro</h1>
+                    <div class="string-item card">
+                        <img src="Images/wilson-nxt.jpg" alt="NXT" class="string-img">
+                        <h1 class="string-name bolded">NXT</h1>
+                        <h2 class="string-type">Multifiliment</h2>
+                        <div class="flex">
+                            <div class="blue-outline-button cross-selector">Select</div>
+                        </div>
+                        
+                    </div>
+                    <div class="string-item card">
+                        <img src="Images/prince-xc.jpg" alt="Prince XC" class="string-img">
+                        <h1 class="string-name bolded">Prince XC</h1>
                         <h2 class="string-type">Polyester</h2>
                         <div class="flex">
-                            <div class="blue-outline-button main-selector">Select</div>
+                            <div class="blue-outline-button cross-selector">Select</div>
                         </div>
+                        
                     </div>
-                    <div class="string-item card" id="kjsdg">
-                        <img src="Images/yonnex-polytour-pro.jpg" alt="Polytour Pro" class="string-img">
-                        <h1 class="string-name bolded">Polytour Pro</h1>
+                    <div class="string-item card">
+                        <img src="Images/pro-feel.jpg" alt="Pro Feel" class="string-img">
+                        <h1 class="string-name bolded">Pro Feel</h1>
+                        <h2 class="string-type">Co-Polyester</h2>
+                        <div class="flex">
+                            <div class="blue-outline-button cross-selector">Select</div>
+                        </div>
+                        
+                    </div>
+                    <div class="string-item card">
+                        <img src="Images/pentapower_twisted.jpg" alt="Pentapower" class="string-img">
+                        <h1 class="string-name bolded">Pentapower</h1>
+                        <h2 class="string-type">Co-Polyester</h2>
+                        <div class="flex">
+                            <div class="blue-outline-button cross-selector">Select</div>
+                        </div>
+                        
+                    </div>
+                    <div class="string-item card">
+                        <img src="Images/polylon.jpg" alt="Polylon" class="string-img">
+                        <h1 class="string-name bolded">Polylon</h1>
                         <h2 class="string-type">Polyester</h2>
                         <div class="flex">
-                            <div class="blue-outline-button main-selector">Select</div>
+                            <div class="blue-outline-button cross-selector">Select</div>
                         </div>
-                    </div>
-                    <div class="string-item card" id="kjsdg">
-                        <img src="Images/yonnex-polytour-pro.jpg" alt="Polytour Pro" class="string-img">
-                        <h1 class="string-name bolded">Polytour Pro</h1>
-                        <h2 class="string-type">Polyester</h2>
-                        <div class="flex">
-                            <div class="blue-outline-button main-selector">Select</div>
-                        </div>
-                    </div>
-                    <div class="string-item card" id="kjsdg">
-                        <img src="Images/yonnex-polytour-pro.jpg" alt="Polytour Pro" class="string-img">
-                        <h1 class="string-name bolded">Polytour Pro</h1>
-                        <h2 class="string-type">Polyester</h2>
-                        <div class="flex">
-                            <div class="blue-outline-button main-selector">Select</div>
-                        </div>
-                    </div>
-                    <div class="string-item card" id="kjsdg">
-                        <img src="Images/yonnex-polytour-pro.jpg" alt="Polytour Pro" class="string-img">
-                        <h1 class="string-name bolded">Polytour Pro</h1>
-                        <h2 class="string-type">Polyester</h2>
-                        <div class="flex">
-                            <div class="blue-outline-button main-selector">Select</div>
-                        </div>
+                        
                     </div>
                 
                 </div>
@@ -384,7 +440,7 @@
             <div class="spacer"></div>
         </div>
         <div class="flex">
-            <a class="solid-blue-button" href="#" rel="modal:close">Close</a>
+            <a class="solid-blue-button" onclick="getAsProvideInputs()">Finish</a>
         </div>
     </div>
 
@@ -437,24 +493,24 @@
                                 </div>
                             </div> 
                             
-                            <!--
+                            
                             <div class="chosen-strings-wrapper">
                                 <div class="grid">
                                     <div class="mains-selection string-selection">
                                         <p class="type-label">Mains</p>
                                         <div class="flex" id="mainsLabel">
-                                            <p class="bolded" id="mainLabel">Prince XP</p>
-                                            <i class="fa fa-edit fa-1x tooltip" onclick="scrollToStrings()">
+                                            <p id="mainLabel"></p>
+                                            <i class="fa fa-edit fa-1x tooltip" onclick="editStrings()">
                                                 <span class="tooltip-text">Edit</span>
                                             </i>
                                         </div>
                                         
                                         <div class="flex">
-                                            <div class="tension-picker">
-                                                <span class="next"></span>
-                                                <span class="prev"></span>
+                                            <div class="tension-picker mains-tension">
+                                                <span class="next" onclick="changeMainTension('i')"></span>
+                                                <span class="prev" onclick="changeMainTension('d')"></span>
                                                 <div id="box">
-                                                    <span>0 lbs</span>
+                                                    <span>55 lbs</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -463,25 +519,25 @@
                                     <div class="crosses-selection string-selection">
                                         <p class="type-label">Crosses</p>
                                         <div class="flex" id="crossesLabel">
-                                            <p class="bolded" id="crossLabel">Proform Tuff</p>
-                                            <i class="fa fa-edit fa-1x tooltip" onclick="scrollToStrings()">
+                                            <p id="crossLabel"></p>
+                                            <i class="fa fa-edit fa-1x tooltip" onclick="editStrings()">
                                                 <span class="tooltip-text">Edit</span>
                                             </i>
                                         </div>
                                         
                                         <div class="flex">
-                                            <div class="tension-picker">
-                                                <span class="next"></span>
-                                                <span class="prev"></span>
+                                            <div class="tension-picker crosses-tension">
+                                                <span class="next" onclick="changeCrossTension('i')"></span>
+                                                <span class="prev" onclick="changeCrossTension('d')"></span>
                                                 <div id="box">
-                                                    <span>0 lbs</span>
+                                                    <span>55 lbs</span>
                                                 </div>
                                             </div>
                                         </div>
                                         
                                     </div>
                                 </div>
-                            </div> -->
+                            </div> 
                             
                             
 
@@ -624,6 +680,8 @@
 
     <div class="spacer"></div>
 
+    <div onclick="showModal()">hello</div>
+
     <!-- Footer -->
     <footer class="footer bg-dark py-5">
         <div class="container grid grid-3">
@@ -659,17 +717,93 @@
         
         switch(num) {
             case 1:
+                $("#youProvide").css("background-color", "#fff");
+                $("#youProvide").css("color", "#333");
                 $("#youProvide").css("border-color", "rgb(192, 192, 192)");
+                $("#weProvide").css("background-color", "#0041A9");
+                $("#weProvide").css("color", "#fff");
                 $("#weProvide").css("border-color", "#0041A9");
                 $("#stringDialogLink").attr("href", "#asProvideStringDialog");
                 break;
             case 2:
+                $("#weProvide").css("background-color", "#fff");
+                $("#weProvide").css("color", "#333");
                 $("#weProvide").css("border-color", "rgb(192, 192, 192)");
+                $("#youProvide").css("background-color", "#0041A9");
+                $("#youProvide").css("color", "#fff");
                 $("#youProvide").css("border-color", "#0041A9");
                 $("#stringDialogLink").attr("href", "#customerProvideStringDialog");
                 break;
         }
-    }; 
+    };
+
+    function CustomerProvideInputs(mainString, mainColor, crossString, crossColor, notes) {
+        this.mainString = mainString;
+        this.mainColor = mainColor;
+        this.crossString = crossString;
+        this.crossColor = crossColor;
+        this.notes = notes;
+    }
+
+    function getCustomerProvideInputs() {
+        let customerProvideInput = new CustomerProvideInputs(
+            $("#mainsStringName").val(),
+            $("#mainsStringColor").val(),
+            $("#crossesStringName").val(),
+            $("#crossesStringColor").val(),
+            $("#stringNotes").val()
+        );
+        if(customerProvideInput.mainString != "" && customerProvideInput.crossString != "") {
+            $("#customerProvideError").css("display", "none");
+            $("#mainsStringName").val("");
+            $("#mainsStringColor").val("");
+            $("#crossesStringName").val("");
+            $("#crossesStringColor").val("");
+            $("#stringNotes").val("");
+            $.modal.close();
+            console.log(customerProvideInput);
+            $(".select-string-wrapper").css("display", "none");
+            $(".chosen-strings-wrapper").css("display", "block");
+            $(".chosen-strings-wrapper #mainLabel").html(customerProvideInput.mainString);
+            $(".chosen-strings-wrapper #crossLabel").html(customerProvideInput.crossString);
+
+        } else {
+            $("#customerProvideError").css("display", "block");
+        }
+    }
+
+    function AsProvideInputs(mainString, crossString) {
+        this.mainString = mainString;
+        this.crossString = crossString;
+    }
+
+    function getAsProvideInputs() {
+        let asProvideInput = new AsProvideInputs(
+            $(".mains-string-carousel .selected-card").children().eq(1).html(),
+            $(".crosses-string-carousel .selected-card").children().eq(1).html()
+        );
+        if(asProvideInput.mainString && asProvideInput.crossString) {
+            console.log(asProvideInput);
+            $("#asProvideError").css("display", "none");
+            $(".mains-string-carousel .string-item").removeClass("selected-card");
+            $(".crosses-string-carousel .string-item").removeClass("selected-card");
+            $.modal.close();
+            $(".select-string-wrapper").css("display", "none");
+            $(".chosen-strings-wrapper").css("display", "block");
+            $(".chosen-strings-wrapper #mainLabel").html(asProvideInput.mainString);
+            $(".chosen-strings-wrapper #crossLabel").html(asProvideInput.crossString)
+        } else {
+            $("#asProvideError").css("display", "block");
+        }
+    }
+
+    function editStrings() {
+        if($("#youProvide").css("border-color") == "rgb(0, 65, 169)") {
+            $('#customerProvideStringDialog').modal();
+        } else if($("#weProvide").css("border-color") == "rgb(0, 65, 169)") {
+            $('#asProvideStringDialog').modal();
+        }
+    }
 
     function openStringSelectDialog() {
         if($("#youProvide").css("border-color") == "rgb(0, 65, 169)") {
@@ -713,16 +847,38 @@
         }
     }
 
+    function changeMainTension(action) {
+        let num = parseInt($(".mains-tension #box span").html().split(" ")[0], 10);
+        switch(action) {
+            case "i":
+                $(".mains-tension #box span").html((num+1) + " lbs");
+                break;
+            case "d":
+                $(".mains-tension #box span").html((num-1) + " lbs");
+                break;
+        }
+    }
+    function changeCrossTension(action) {
+        let num = parseInt($(".crosses-tension #box span").html().split(" ")[0], 10);
+        switch(action) {
+            case "i":
+                $(".crosses-tension #box span").html((num+1) + " lbs");
+                break;
+            case "d":
+                $(".crosses-tension #box span").html((num-1) + " lbs");
+                break;
+        }
+    }
+
 
     function scrollToStrings() {
         $("#scrollSpacer").get(0).scrollIntoView();
     }
 
     $(".main-selector").click(function(e) {
-        console.log(this.parentNode)
-        $(this).parent().parent().addClass('dark-card');
-        $(this).addClass("no-click");
-        $(this).parent().parent().children().last().css("display", "block");
+        $(".mains-string-carousel .string-item").removeClass('selected-card');
+        $(this).parent().parent().addClass('selected-card');
+        
         /*
         $("#mainInput").css("display", "none");
         $("#mainsLabel").css("display", "flex");
@@ -737,14 +893,8 @@
 
 
     $(".cross-selector").click(function(e) {
-        $("#crossInput").css("display", "none");
-        $("#crossesLabel").css("display", "flex");
-        $("#crossLabel").html(e.target.parentNode.parentNode.childNodes[3].innerHTML);
-        $(".navbar").get(0).scrollIntoView();
-        if($("#crossTensionInput").val().trim().length > 0 && screen.width > 440) {
-            root.style.setProperty("--animation3", 'fill 3s ease-in-out forwards');
-            $("#third").css("color", "#fff");
-        }
+        $(".crosses-string-carousel .string-item").removeClass('selected-card');
+        $(this).parent().parent().addClass('selected-card');
     });
     
     // Cue animations
