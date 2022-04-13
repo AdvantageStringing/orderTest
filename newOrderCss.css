@@ -48,6 +48,10 @@
   .centered {
     text-align: center;
   }
+
+  .text-button {
+    color: #0041a9;
+  }
   
   .circle-img {
     border-radius: 50%;
@@ -263,70 +267,6 @@
     background-color: #002240;
   }
   
-  /* Dialog Utilities Classes */
-  .dialog-main,
-  .complete-dialog,
-  .help-dialog,
-  .string-dialog {
-    display: none;
-    /* Hidden by default */
-    position: fixed;
-    /* Stay in place */
-    z-index: 1;
-    /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%;
-    /* Full width */
-    height: 100%;
-    /* Full height */
-    overflow: auto;
-    /* Enable scroll if needed */
-    background-color: black;
-    /* Fallback color */
-    background-color: rgba(0, 0, 0, 0.4);
-    /* Black w/ opacity */
-  }
-  
-  .dialog-main .dialog-content,
-  .complete-dialog .dialog-content,
-  .help-dialog .dialog-content,
-  .string-dialog .dialog-content,
-  .string-dialog .string-dialog-content,
-  .complete-dialog .complete-dialog-content,
-  .help-dialog .help-dialog-content {
-    background-color: #fefefe;
-    margin: 10% auto;
-    /* 15% from the top and centered */
-    padding: 20px;
-    border-radius: 25px;
-    width: 80%;
-    /* Could be more or less, depending on screen size */
-  }
-  
-  .help-dialog-header .flex,
-  .string-dialog-header .flex,
-  .complete-dialog-header .flex,
-  .mystery-dialog-header .flex {
-    justify-content: end;
-    -webkit-justify-content: flex-end;
-  }
-  
-  .close {
-    color: #aaa;
-    float: right;
-    font-size: 25px;
-    font-weight: bold;
-    margin-right: 15px;
-  }
-  
-  .close:hover,
-  .close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-  }
-  
   .dialog-main h1,
   .complete-dialog h1,
   .help-dialog h1,
@@ -360,8 +300,7 @@
     margin-bottom: 20px;
   }
   
-  .complete-dialog .grid,
-  .complete-dialog .grid-3 {
+  .complete-dialog .grid {
     width: 100%;
     -webkit-box-pack: center;
     -ms-flex-pack: center;
@@ -1539,19 +1478,11 @@
     margin-top: 10px;
   }
   
-  .mystery-string-dialog .grid,
-  .mystery-string-dialog .grid-3 {
-    width: 100%;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-  }
-  
   .mystery-dialog-form .form-input-field {
     margin-bottom: 20px;
   }
   
-  .mystery-string-dialog .solid-blue-button {
+  .other-form .solid-blue-button {
     margin-top: 10px;
   }
   
@@ -1747,11 +1678,13 @@
   }
 
 
-  #ex1 p {
+  #ex1 p,
+  #noRacketsError p {
     text-align: center;
 }
 
-#ex1 .flex {
+#ex1 .flex,
+#noRacketsError .flex {
     margin-top: 25px;
 }
 
@@ -1875,25 +1808,52 @@
   margin-bottom: 0px;
   margin-top: 10px;
   position: relative;
-  height: 350px;
+  height: 360px;
+  border: 2px solid transparent;
+}
+
+.string-carousel .card .grid {
+  gap: 3px;
+  height: 316px;
+  grid-template-rows: 150px 62px 25px auto !important;
 }
 
 .string-carousel .card h1 {
   font-size: 25px;
+  margin: 0px;
+}
+
+.string-carousel .mystery-title {
+  margin-bottom: 15px !important;
+}
+
+.mystery-item .flex {
+  flex-direction: column;
+  height: 271px !important;
+  margin-top: 0px !important;
+}
+
+.mystery-item .other-form .flex {
+  height: auto !important;
+}
+
+.other-content h2 {
+  padding: 63px 0px;
 }
 
 .string-carousel .card h2 {
   font-size: 19px;
+  margin: 0px;
 }
 
 .string-carousel .card .blue-outline-button {
   width: 150px;
   font-size: 20px;
-  margin-top: 10px;
 }
 
 .string-carousel .card .flex {
-  height: auto;
+  height: 100%;
+  margin-top: 10px;
 }
 
 .as-provide-dialog-content .flex {
@@ -1916,7 +1876,7 @@
 
 .selected-card {
   transition: 1s;
-  border: 2px solid #0041a9;
+  border: 2px solid #0041a9 !important;
 }
 
 .no-click {
@@ -2465,5 +2425,18 @@
     }
   }
 
+.other-content {
+  width: 150px;
+}
 
+.other-form {
+  width: 150px;
+  height: 100%;
+  display: none;
+}
+
+.other-form .flex {
+  margin: 0px;
+  width: 100%;
+}
 
