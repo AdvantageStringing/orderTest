@@ -68,37 +68,22 @@
         </div>
     </div>
 
-    <!-- Header -->
-    <section class="order-title-header container">
-        <h1 class="bolded large-font centered">Order</h1>
-    </section>
-
-    <!-- Progress Bar -->
-    <section class="progress-bar">
-        <div class="progress-bar-wrapper container" id="progressBar">
-
-            <div class="progress-point" id="first">
-                <h2>Racket</h2>
+    <!-- Showcase -->
+    <section class="order-showcase">
+        <div class="order-showcase-text grid">
+            <div class="content">
+                <h1 class="large-font">Order</h1>
+                <p>We take orders through call, text, and email, as well as any contact form and the order form below. After you place an order, we will contact you to arrange drop-off and pick-up dates. We usually take payments in cash after the order is complete.</p>
             </div>
-
-            <div class="progress-line" id="first-line"></div>
-
-            <div class="progress-point" id="second">
-                <h2>Mains</h2>
-            </div>
-
-            <div class="progress-line" id="second-line"></div>
-
-            <div class="progress-point" id="third">
-                <h2>Crosses</h2>
-            </div>
-
         </div>
     </section>
+
+    <div class="spacer"></div>
+
     <section class="order-help container">
         <div class="order-help-wrapper card centered">
             <h2 class="bolded">Want Help With Your Order?</h2>
-            <p>If you want assistance with choosing strings and tension, contact us with your questions. We can help guide your selection to improve certain areas of your game. We take orders through call, text, and email, as well as this contact form and the order form below.</p>
+            <p>If you want assistance with choosing strings and tension, contact us with your questions. We can help guide your selection to improve certain areas of your game.</p>
             <div class="flex">
                 <div><a class="blue-outline-button" id="helpBtn" href="#helpDialog" rel="modal:open">Contact Us</a></div>
             </div>
@@ -216,7 +201,7 @@
     </div>
 
     <div id="asProvideStringDialog" class="modal">
-        <h1>Select Strings</h1>
+        <h1 id="dialogTop">Select Strings</h1>
         <p>Input the strings you want for your racket.</p>
         <div class="error" id="asProvideError">
             <p>Please select a string for both the mains and crosses</p>
@@ -351,7 +336,7 @@
                         <h1 class="string-name bolded mystery-title">Other</h1>
 
                         <div class="other-content flex">
-                            <h2 class="string-type">Input any string and we will source it.</h2>
+                            <h2 class="string-type">Input any string and we will source it for you.</h2>
                             <div class="flex">
                                 <div class="blue-outline-button other-main-selector">Select</div>
                             </div>
@@ -516,7 +501,7 @@
                         <h1 class="string-name bolded mystery-title">Other</h1>
 
                         <div class="other-content flex">
-                            <h2 class="string-type">Input any string and we will source it.</h2>
+                            <h2 class="string-type">Input any string and we will source it for you.</h2>
                             <div class="flex">
                                 <div class="blue-outline-button other-cross-selector">Select</div>
                             </div>
@@ -689,7 +674,7 @@
                                     <div class="spacer"></div>
                                     <div class="flex">
                                         <p class="bolded" id="racketLabel">Racket 1</p>
-                                        <i class="fa fa-trash fa-1x tooltip deleteBtn" onclick="scrollToStrings()">
+                                        <i class="fa fa-trash fa-1x tooltip deleteBtn">
                                             <span class="tooltip-text">Delete</span>
                                         </i>
                                     </div>
@@ -829,6 +814,8 @@
         }
     };
 
+    var customerProvideInputsList = [];
+
     function CustomerProvideInputs(mainString, mainColor, crossString, crossColor, notes) {
         this.mainString = mainString;
         this.mainColor = mainColor;
@@ -852,8 +839,8 @@
             $("#crossesStringName").val("");
             $("#crossesStringColor").val("");
             $("#stringNotes").val("");
+            customerProvideInputsList.push(customerProvideInput);
             $.modal.close();
-            console.log(customerProvideInput);
             $(".select-string-wrapper").css("display", "none");
             $(".chosen-strings-wrapper").css("display", "block");
             $(".chosen-strings-wrapper #mainLabel").html(customerProvideInput.mainString);
@@ -870,10 +857,16 @@
     }
 
     function getAsProvideInputs() {
+        if($(".mains-string-carousel .mystery-item").hasClass("selected-card")) {
+            console.log("ljkdsfa");
+        } else {
+            console.log("non lkjfdksdl")
+        }
+        
 
         let asProvideInput = new AsProvideInputs(
-            $(".mains-string-carousel #mysteryStringForm #stringName").val() ? $(".mains-string-carousel #mysteryStringForm #stringName").val() : $(".mains-string-carousel .selected-card").children().eq(1).html(),
-            $(".crosses-string-carousel #mysteryStringForm #stringName").val() ? $(".crosses-string-carousel #mysteryStringForm #stringName").val() : $(".crosses-string-carousel .selected-card").children().eq(1).html(),
+            $(".mains-string-carousel .mystery-item").hasClass("selected-card") ? $(".mains-string-carousel #mysteryStringForm #stringName").val() : $(".mains-string-carousel .selected-card").children().children().eq(1).html(),
+            $(".mains-string-carousel .mystery-item").hasClass("selected-card") ? $(".crosses-string-carousel #mysteryStringForm #stringName").val() : $(".crosses-string-carousel .selected-card").children().children().eq(1).html(),
         );
         console.log(asProvideInput);
         if(asProvideInput.mainString && asProvideInput.crossString) {
@@ -887,6 +880,7 @@
             $(".chosen-strings-wrapper #crossLabel").html(asProvideInput.crossString)
         } else {
             $("#asProvideError").css("display", "block");
+            $("#dialogTop").get(0).scrollIntoView();
         }
     }
 
@@ -1022,12 +1016,12 @@
         console.log(newMysteryString)
 
         if(newMysteryString.name === "") {
-            $("#stringName").css("border", "1.5px solid rgb(172, 0, 0)");
+            $(`.${type}-string-carousel #stringName`).css("border", "1.5px solid rgb(172, 0, 0)");
             return undefined;
         }
 
-        $("#stringName").css("border", "1.5px solid #fff");
-        $("#stringName").css("border-bottom", "1.5px solid #b4becb");
+        $(`.${type}-string-carousel #stringName`).css("border", "1.5px solid #fff");
+        $(`.${type}-string-carousel #stringName`).css("border-bottom", "1.5px solid #b4becb");
         
         if(newMysteryString.name != "" && newMysteryString.type === "mains") {
             $(".mains-string-carousel .string-item").removeClass('selected-card');
@@ -1183,13 +1177,14 @@
 
     // List to hold contact form inputs
 
-    function CompleteDialogForm(first, last, email, notes, rackets, mysteryString) {
+    function CompleteDialogForm(first, last, email, notes, rackets, mysteryString, customerProvideInput) {
         this.first = first,
         this.last = last,
         this.email = email,
         this.notes = notes,
         this.rackets = rackets,
-        this.mysteryString = mysteryString
+        this.mysteryString = mysteryString,
+        this.customerProvideInput = customerProvideInput
     }
 
     $('#completeDialog').on($.modal.CLOSE, function(event, modal) {
@@ -1234,7 +1229,8 @@
             $("#emailComplete").val(),
             $("#notesComplete").val(),
             racketObjectList,
-            mysteryStringObjList
+            mysteryStringObjList,
+            customerProvideInputsList
         );
 
         // check if all form sections are filled out
