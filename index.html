@@ -866,7 +866,7 @@
 
         let asProvideInput = new AsProvideInputs(
             $(".mains-string-carousel .mystery-item").hasClass("selected-card") ? $(".mains-string-carousel #mysteryStringForm #stringName").val() : $(".mains-string-carousel .selected-card").children().children().eq(1).html(),
-            $(".mains-string-carousel .mystery-item").hasClass("selected-card") ? $(".crosses-string-carousel #mysteryStringForm #stringName").val() : $(".crosses-string-carousel .selected-card").children().children().eq(1).html(),
+            $(".crosses-string-carousel .mystery-item").hasClass("selected-card") ? $(".crosses-string-carousel #mysteryStringForm #stringName").val() : $(".crosses-string-carousel .selected-card").children().children().eq(1).html(),
         );
         console.log(asProvideInput);
         if(asProvideInput.mainString && asProvideInput.crossString) {
