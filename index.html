@@ -857,18 +857,11 @@
     }
 
     function getAsProvideInputs() {
-        if($(".mains-string-carousel .mystery-item").hasClass("selected-card")) {
-            console.log("ljkdsfa");
-        } else {
-            console.log("non lkjfdksdl")
-        }
-        
 
         let asProvideInput = new AsProvideInputs(
             $(".mains-string-carousel .mystery-item").hasClass("selected-card") ? $(".mains-string-carousel #mysteryStringForm #stringName").val() : $(".mains-string-carousel .selected-card").children().children().eq(1).html(),
             $(".crosses-string-carousel .mystery-item").hasClass("selected-card") ? $(".crosses-string-carousel #mysteryStringForm #stringName").val() : $(".crosses-string-carousel .selected-card").children().children().eq(1).html(),
         );
-        console.log(asProvideInput);
         if(asProvideInput.mainString && asProvideInput.crossString) {
             $("#asProvideError").css("display", "none");
             $(".mains-string-carousel .string-item").removeClass("selected-card");
@@ -957,31 +950,8 @@
         $(".crosses-string-carousel .string-item").removeClass('selected-card');
         $(this).parent().parent().parent().addClass('selected-card');
     });
-    
-    // Cue animations
-    $("#mainTensionInput").blur(function () {
-        if ($("#mainsLabel").css("display") == "flex" && screen.width > 440) {
-            root.style.setProperty("--animation2", 'fill 3s ease-in-out forwards');
-            $("#second").css("color", "#fff");
-        }
-    });
 
-    $("#crossTensionInput").blur(function () {
-        if ($("#crossesLabel").css("display") == "flex" && screen.width > 440) {
-            root.style.setProperty("--animation3", 'fill 3s ease-in-out forwards');
-            $("#third").css("color", "#fff");
-        }
-    });
-
-    $('input[type="racket"]').blur(function () {
-        if ($("#brandInput").val().trim().length > 0 && $("#modelInput").val().trim().length > 0 && screen.width > 440) {
-            root.style.setProperty("--animation1", 'fill 3s ease-in-out forwards');
-            $("#first").css("color", "#fff");
-        }
-            
-    });
-
-    //Code for opening mystery string dialog
+    //Code for choosing an "other" string
     var mysteryStringObjList = [];
 
     function MysteryString(type, name, color, gauge, link, notes) {
@@ -1255,8 +1225,8 @@
 
         //Clear content in order summary list
         if(racketObjectList.length > 1) {
+            $("#completingOrderScreen").css("color", "red");
             for(let i=1; i<racketObjectList.length; i++) {
-                console.log(i+1);
                 $("#racketItem" + (i+1)).remove();
             }
         } 
@@ -1265,6 +1235,7 @@
         orderTotal = 0;
         mysteryStringObjList = [];
         racketObjectList = [];
+        customerProvideInputsList = [];
         orderTotal = 0;
 
         $("#totalOrderPrice").html("Total: $0.00");
@@ -1360,10 +1331,10 @@
         racketObjectList.splice(ind-1, 1);
 
         // update the order total
-        if(racket.provider === "We provide") {
+        if(racket.provider === "Advantage Stringing") {
             orderTotal -= 20;
             $("#totalOrderPrice").html("Total: $" + orderTotal + ".00");
-        } else if(racket.provider === "Customer provide") {
+        } else if(racket.provider === "Customer") {
             orderTotal -= 10;
             $("#totalOrderPrice").html("Total: $" + orderTotal + ".00");
         } 
